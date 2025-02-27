@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+
+    <style>
+    body{
+        background-color: #000;
+        font-family: "Staatliches";
+    }
+    .date{
+        color: #fff;
+        display: flex;
+        font-size: 60px;
+        width: fit-content;
+        margin: 0 auto;
+        position: relative;
+        top: 60px;
+    }
+    #y , #mo , #d{
+        margin: 0 10px;
+    }
+
+    .time{
+        color: #fff;
+        display: flex;
+        height: 250px;
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        align-items: end;
+        position: relative;
+        top: 60px;
+    }
+    #h{
+        width: 40%;
+        font-size: 240px;
+        text-align: center;
+    }
+    #min{
+        width: 40%;
+        font-size: 240px;
+        text-align: center;
+    }
+    #s{
+        width: 20%;
+        height: 130px;
+        font-size: 120px;
+        margin: 0 0 55px 0;
+        text-align: center;
+    }
+    .colone{
+        font-size: 200px;
+        height: 250px;
+        margin: 0 0 40px 0;
+    }
+</style>
+<body>
+    <div class="date">
+        <div id="y"></div>/
+        <div id="mo"></div>/
+        <div id="d"></div>
+        <div id="wd"></div>
+    </div>
+    <div class="time">
+        <div id="h"></div>
+        <div class="colone">:</div>
+        <div id="min"></div>
+        <div id="s"></div>
+    </div>
+    <script>
+        setInterval(function(){
+            let time = new Date();
+
+            document.getElementById('y').innerText = time.getFullYear();
+            document.getElementById('mo').innerText = time.getMonth() + 1;
+            document.getElementById('d').innerText = time.getDate();
+            document.getElementById('h').innerText = time.getHours();
+            document.getElementById('min').innerText = time.getMinutes();
+            document.getElementById('s').innerText = time.getSeconds();
+
+            let weekDay = time.getDay();
+            function searchDay(n){
+                const weekName = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun",];
+                return weekName[n - 1];
+            }
+            document.getElementById('wd').innerText = '(' + ' ' + searchDay(weekDay) + ' ' + ')';
+        },150);
+    </script>
+</body>
+</html>
