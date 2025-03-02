@@ -86,12 +86,12 @@
             document.getElementById('min').innerText = time.getMinutes();
             document.getElementById('s').innerText = time.getSeconds();
 
-            let weekDay = time.getDay();
+            let weekDay = time.getDay() + 1;
             function searchDay(n){
-                const weekName = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun",];
+                const weekName = ["Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
                 return weekName[n - 1];
             }
-            document.getElementById('wd').innerText = '(' + ' ' + searchDay(weekDay) + ' ' + ')';
+            document.getElementById('wd').innerText = ' ' + '(' + searchDay(weekDay)+ ')' + ' ';
         },150);
     </script>
 </body>
